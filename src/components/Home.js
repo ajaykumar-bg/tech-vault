@@ -1,10 +1,11 @@
 import React, { Component } from 'react'
+import Navbar from './Navbar'
 
 export class Home extends Component {
   render() {
     return (
       <div>
-        Home
+        <Navbar></Navbar>
       </div>
     )
   }

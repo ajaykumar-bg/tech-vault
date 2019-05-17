@@ -26,9 +26,6 @@ export class Login extends Component {
       <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
-        {/* <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p> */}
         <div>
           <GoogleLogin
             clientId="353047849820-cc4r0f57gdm56onir633v31b74ftpc00.apps.googleusercontent.com"
