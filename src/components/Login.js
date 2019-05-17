@@ -1,29 +1,52 @@
 import React, { Component } from 'react'
 import GoogleLogin from 'react-google-login';
 
+import logo from '../logo.svg';
+import '../App.css';
+
 export class Login extends Component {
   responseGoogle = (response) => {
-    const user = {
-      name: response.w3.ig,
-      provider: "google",
-      email: response.w3.U3,
-      provider_id: response.El,
-      token: response.Zi.access_token,
-      provider_pic: response.w3.Paa
+    if(response && response.w3 && response.w3.U3) {
+      const user = {
+        name: response.w3.ig,
+        provider: "google",
+        email: response.w3.U3,
+        provider_id: response.El,
+        token: response.Zi.access_token,
+        provider_pic: response.w3.Paa
+      }
+      console.log("responseGoogle", user);
     }
-    console.log("responseGoogle", user);
+    
   }
   render() {
     return (
-      <div>
-        <GoogleLogin
-          clientId="353047849820-cc4r0f57gdm56onir633v31b74ftpc00.apps.googleusercontent.com"
-          buttonText="Login"
-          onSuccess={this.responseGoogle}
-          onFailure={this.responseGoogle}
-          cookiePolicy={'single_host_origin'}
-        ></GoogleLogin>
-      </div>
+      <div className="App">
+      <header className="App-header">
+        <img src={logo} className="App-logo" alt="logo" />
+        {/* <p>
+          Edit <code>src/App.js</code> and save to reload.
+        </p> */}
+        <div>
+          <GoogleLogin
+            clientId="353047849820-cc4r0f57gdm56onir633v31b74ftpc00.apps.googleusercontent.com"
+            buttonText="Login"
+            onSuccess={this.responseGoogle}
+            onFailure={this.responseGoogle}
+            cookiePolicy={'single_host_origin'}
+          ></GoogleLogin>
+        </div>
+        <a
+          className="App-link"
+          href="https://reactjs.org"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tech Vault
+        </a>
+      </header>
+    </div>
+      
     )
   }
 }
