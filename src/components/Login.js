@@ -1,6 +1,8 @@
 import React, { Component } from 'react'
 import GoogleLogin from 'react-google-login';
 
+import {Link} from 'react-router-dom'
+
 import logo from '../logo.svg';
 import '../App.css';
 
@@ -36,14 +38,11 @@ export class Login extends Component {
             cookiePolicy={'single_host_origin'}
           ></GoogleLogin>
         </div>
-        <a
+        <Link
           className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+          to="/home">
           Tech Vault
-        </a>
+        </Link>
       </header>
     </div>
       
