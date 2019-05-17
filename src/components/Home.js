@@ -1,11 +1,19 @@
 import React, { Component } from 'react'
 import Navbar from './Navbar'
+import SearchBar from './SearchBar'
+import CategoryFilter from './CategoryFilter'
+import Posts from './Posts'
 
 export class Home extends Component {
   render() {
     return (
-      <div>
+      <div className="white">
         <Navbar></Navbar>
+        <SearchBar></SearchBar>
+        <div className="container">
+          <CategoryFilter></CategoryFilter>
+          <Posts></Posts>
+        </div>
       </div>
     )
   }
