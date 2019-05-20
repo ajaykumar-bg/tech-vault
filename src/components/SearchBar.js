@@ -1,17 +1,24 @@
-import React from 'react'
+import React from "react";
 
 export default function SearchBar() {
   return (
     <nav>
-    <div className="nav-wrapper">
-      <form>
-        <div className="input-field">
-          <input id="search" type="search" placeholder="Search TechVault" required/>
-          <label className="label-icon" htmlFor="search"><i className="material-icons">search</i></label>
-          <i className="material-icons">close</i>
-        </div>
-      </form>
-    </div>
-  </nav>
-  )
+      <div className="nav-wrapper">
+        <form>
+          <div className="input-field">
+            <input
+              id="search"
+              type="search"
+              placeholder="Search TechVault"
+              required
+            />
+            <label className="label-icon" htmlFor="search">
+              <i className="material-icons">search</i>
+            </label>
+            <i className="material-icons">close</i>
+          </div>
+        </form>
+      </div>
+    </nav>
+  );
 }
