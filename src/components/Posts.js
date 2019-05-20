@@ -1,13 +1,28 @@
-import React from "react";
-import PostItem from "./PostItem";
+import React, { Component } from "react";
+import { connect } from 'react-redux'
 
-export default function Posts() {
-  return (
-    <div className="row mt-5">
-      <PostItem />
-      <PostItem />
-      <PostItem />
-      <PostItem />
-    </div>
-  );
+import PostList from "./PostList";
+import { fetchPosts } from '../actions/PostAction'
+
+class Posts extends Component {
+  componentDidMount() {
+    this.props.fetchPosts();
+  }
+  
+  render() {
+    return (
+      <div className="row mt-5">
+        <PostList posts= {this.props.posts} ></PostList>
+      </div>
+    );
+  }
+  
 }
+
+function mapStateToProps(state) {
+  return {
+    posts: state.PostReducer
+  }
+}
+
+export default connect(mapStateToProps, {fetchPosts} )(Posts)
