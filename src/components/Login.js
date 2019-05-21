@@ -27,7 +27,7 @@ class Login extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <div>
             <GoogleLogin
-              clientId="353047849820-cc4r0f57gdm56onir633v31b74ftpc00.apps.googleusercontent.com"
+              clientId="353047849820-psgdjh1ol09hrulcdndh0mi2qm0hrkla.apps.googleusercontent.com"
               buttonText="Login"
               onSuccess={this.responseGoogle}
               onFailure={this.responseGoogle}
