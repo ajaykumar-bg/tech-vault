@@ -1,7 +1,7 @@
 import React from "react";
 import "../index.css";
 
-export default function CategoryFilter() {
+function CategoryFilter() {
   return (
     <div>
       <div className="mt-5">
@@ -15,11 +15,11 @@ export default function CategoryFilter() {
       <div className="row mt-5">
         <div className="col-4">
           <select className="form-control">
-            <option value="all">Showing All Items</option>
-            <option value="starred">Starred Items</option>
-            <option value="most-liked">Most Liked Items</option>
-            <option value="most-viewed">Most Viewed Items</option>
-            <option value="most-recent">Most Recent Items</option>
+            <option value="ALL">Showing All Items</option>
+            <option value="STARRED">Starred Items</option>
+            <option value="MOST_LIKED">Most Liked Items</option>
+            <option value="MOST_VIEWED">Most Viewed Items</option>
+            <option value="MOST_RECENT">Most Recent Items</option>
           </select>
         </div>
         <div className="col-4">
@@ -33,3 +33,5 @@ export default function CategoryFilter() {
     </div>
   );
 }
+
+export default CategoryFilter;

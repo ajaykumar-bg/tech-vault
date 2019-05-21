@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 import logo from "../logo.svg";
 import "../App.css";
 
-export class Login extends Component {
+class Login extends Component {
   responseGoogle = response => {
     if (response && response.w3 && response.w3.U3) {
       const user = {

@@ -4,7 +4,7 @@ import SearchBar from './SearchBar'
 import CategoryFilter from './CategoryFilter'
 import Posts from './Posts'
 
-export class Home extends Component {
+class Home extends Component {
   render() {
     return (
       <div className="white">

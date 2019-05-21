@@ -1,6 +1,6 @@
 import { POSTS_FETCHED } from '../constants/Constants'
 
-export default function LoginReducer(state = [], action = {}) {
+export default function PostReducer(state = [], action = {}) {
     switch (action.type) {
         case POSTS_FETCHED: {
             return action.posts;

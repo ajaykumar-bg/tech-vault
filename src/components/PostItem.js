@@ -2,7 +2,7 @@ import React from "react";
 import moment from 'moment';
 import "../PostStyle.css";
 
-export default function PostItem({post}) {
+function PostItem({post}) {
   function fromNow (date) {
     return moment(date).fromNow();
   }
@@ -38,3 +38,5 @@ export default function PostItem({post}) {
     </div>
   );
 }
+
+export default PostItem;

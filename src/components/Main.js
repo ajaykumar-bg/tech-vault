@@ -4,7 +4,7 @@ import { Switch, Route } from "react-router-dom";
 import Login from "./Login";
 import Home from "./Home";
 
-export class Main extends Component {
+class Main extends Component {
   render() {
     return (
       <main>

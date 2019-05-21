@@ -1,6 +1,6 @@
 import React from "react";
 
-export default function SearchBar() {
+function SearchBar() {
   return (
     <nav>
       <div className="nav-wrapper">
@@ -22,3 +22,5 @@ export default function SearchBar() {
     </nav>
   );
 }
+
+export default SearchBar;
