@@ -7,12 +7,9 @@ export default function CategoryFilter() {
       <div className="mt-5">
         <h3>Technologies</h3>
         <div className="row">
-          <div className="chip">Angular JS (25)</div>
-          <div className="chip">React JS (25)</div>
-          <div className="chip">JQuery (25)</div>
-          {/* <span className="badge badge-pill badge-danger text-white">Angular JS</span>
-              <span className="badge badge-pill badge-primary text-white">React JS</span>
-              <span className="badge badge-pill badge-success text-white">JQuery</span> */}
+          <div className="chip">Angular JS (10)</div>
+          <div className="chip">React JS (2)</div>
+          <div className="chip">JQuery (5)</div>
         </div>
       </div>
       <div className="row mt-5">
@@ -27,8 +24,8 @@ export default function CategoryFilter() {
         </div>
         <div className="col-4">
           <select className="form-control">
-            <option value="desc">Sort Descending</option>
-            <option value="asc">Sort Ascending</option>
+            <option value="DESC">Sort Descending</option>
+            <option value="ASC">Sort Ascending</option>
           </select>
         </div>
 
