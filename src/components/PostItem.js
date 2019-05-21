@@ -1,7 +1,11 @@
 import React from "react";
+import moment from 'moment';
 import "../PostStyle.css";
 
 export default function PostItem({post}) {
+  function fromNow (date) {
+    return moment(date).fromNow();
+  }
   return (
     <div className="col-md-4">
       <div className="post">
@@ -17,9 +21,9 @@ export default function PostItem({post}) {
               {post.title}
             </a>
           </h3>
-          <div>
+          {/* <div className="doc-title-3">
           {post.description}
-          </div>
+          </div> */}
           <div className="post-meta">
             <span>
               <b>Reading Time: </b>{post.readingTime}
@@ -27,7 +31,7 @@ export default function PostItem({post}) {
           </div>
           <div className="post-meta">
             <span className="badge badge-primary text-white">{post.categoryType}</span>
-            <span className="post-date">{post.postedOn}</span>
+            <span className="post-date">{fromNow(post.postedOn)}</span>
           </div>
         </div>
       </div>

@@ -12,18 +12,18 @@ function PostList({posts}) {
       );
     })
     const postList = (
-      <div>
+      <React.Fragment>
         {postItems}
-    </div>
+    </React.Fragment>
     )
   return (
-    <div>
+    <React.Fragment>
       {
         posts.length === 0 ? 
         emptyMessage :
         postList
       }
-    </div>
+    </React.Fragment>
   )
 }
 

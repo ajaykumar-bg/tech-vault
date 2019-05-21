@@ -23,3 +23,14 @@
     width: 50px;
     border-radius: 50%;
   }
+
+  .doc-title-3 {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-height: 18px;
+    height: 60px;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    text-align: justify;
+}
