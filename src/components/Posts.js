@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { connect } from 'react-redux'
 
 import PostList from "./PostList";
-import { fetchPosts } from '../actions/PostAction'
+import { fetchPosts, searchPosts } from '../actions/PostAction'
 
 class Posts extends Component {
   componentDidMount() {

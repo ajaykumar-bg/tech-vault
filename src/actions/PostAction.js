@@ -1,7 +1,6 @@
 import ApiConstants from '../constants/ApiConstants'
 
-import { POSTS_FETCHED } from '../constants/Constants'
-import { POSTS_SEARCHED } from '../constants/Constants'
+import { FETCH_POSTS, SEARCH_POSTS, SORT_POSTS } from '../constants/Constants'
 
 function handleResponse(response) {
     if(response.ok) {
@@ -15,15 +14,22 @@ function handleResponse(response) {
 
 export function setPosts(posts=[]) {
     return {
-        type: POSTS_FETCHED,
+        type: FETCH_POSTS,
         posts
     }
 }
 
-export function searchPosts(value) {
+export function searchPosts(searchKey) {
     return {
-        type: POSTS_SEARCHED, 
-        value
+        type: SEARCH_POSTS, 
+        searchKey
+    };
+}
+
+export function sortPosts(sortKey) {
+    return {
+        type: SORT_POSTS, 
+        sortKey
     };
 }
 
@@ -40,6 +46,9 @@ export function fetchPosts(search) {
         "order": "title ASC"
     };
     filter = {};
+    if(search) {
+        filter = {searchKey: search};
+    }
     const filterStr = JSON.stringify(filter);
     return dispatch => {
         return fetch(`${baseURL}${POSTS_URL}?filter=${filterStr}`, {
