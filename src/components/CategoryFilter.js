@@ -1,9 +1,20 @@
-import React from "react";
+import React, { Component } from 'react'
 import "../index.css";
 
-function CategoryFilter() {
-  return (
-    <div>
+class CategoryFilter extends Component {
+  constructor(props) {
+    super(props)
+  }
+  
+  
+  sortChange = () => {
+    const sort = `title ${this.refs.sortValue.value}`
+    console.log(sort)
+  }
+  render() {
+    return (
+      <div>
+      <form>
       <div className="mt-5">
         <h3>Technologies</h3>
         <div className="row">
@@ -23,15 +34,18 @@ function CategoryFilter() {
           </select>
         </div>
         <div className="col-4">
-          <select className="form-control">
+          <select className="form-control" ref="sortValue" onChange={this.sortChange}>
             <option value="DESC">Sort Descending</option>
             <option value="ASC">Sort Ascending</option>
           </select>
         </div>
 
       </div>
+      </form>
     </div>
-  );
+    )
+  }
 }
 
-export default CategoryFilter;
+export default CategoryFilter
+
