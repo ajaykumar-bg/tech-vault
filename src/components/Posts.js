@@ -21,7 +21,7 @@ class Posts extends Component {
 
 function mapStateToProps(state) {
   return {
-    posts: state.PostReducer
+    posts: state.PostReducer.postList
   }
 }
 
