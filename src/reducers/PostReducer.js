@@ -18,7 +18,7 @@ export default function PostReducer(state = initialState, action = {}) {
         case SEARCH_POSTS: {
             return {
                 ...state,
-                searchValue: action.searchValue
+                searchKey: action.searchKey
             };
         }
         case SORT_POSTS: {

@@ -1,17 +1,28 @@
 import React, { Component } from 'react'
+import { connect } from 'react-redux'
 import "../index.css";
+import { sortPostFn } from '../actions/PostAction'
 
 class CategoryFilter extends Component {
   constructor(props) {
     super(props)
+  
+    this.state = {
+      sortBy: '',
+      sortType: 'ASC',
+    }
   }
   
   
-  sortChange = () => {
-    const sort = `title ${this.refs.sortValue.value}`
-    console.log(sort)
+  
+  sortChange = (e) => {
+    const sortType = this.refs.sortType.value;
+    const sortKey = `title ${sortType}`;
+    this.props.sortPostFn(sortKey);
   }
+
   render() {
+    console.log(this.refs)
     return (
       <div>
       <form>
@@ -34,7 +45,7 @@ class CategoryFilter extends Component {
           </select>
         </div>
         <div className="col-4">
-          <select className="form-control" ref="sortValue" onChange={this.sortChange}>
+          <select className="form-control" ref="sortType" onChange={this.sortChange}>
             <option value="DESC">Sort Descending</option>
             <option value="ASC">Sort Ascending</option>
           </select>
@@ -47,5 +58,13 @@ class CategoryFilter extends Component {
   }
 }
 
-export default CategoryFilter
+function mapStateToProps(state) {
+  return {
+    sortKey: state.PostReducer.sortKey
+  }
+}
+
+const mapDispatchToProps = { sortPostFn }
+
+export default connect(mapStateToProps, mapDispatchToProps)(CategoryFilter)
 

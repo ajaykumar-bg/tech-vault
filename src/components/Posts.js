@@ -2,12 +2,18 @@ import React, { Component } from "react";
 import { connect } from 'react-redux'
 
 import PostList from "./PostList";
-import { fetchPosts, searchPosts } from '../actions/PostAction'
+import { fetchPosts } from '../actions/PostAction'
 
 class Posts extends Component {
   componentDidMount() {
     this.props.fetchPosts();
   }
+
+  componentWillReceiveProps(nextProps) {
+    console.log("nextProps", nextProps);
+    // this.props.fetchPosts();
+  }
+  
   
   render() {
     return (
@@ -21,7 +27,9 @@ class Posts extends Component {
 
 function mapStateToProps(state) {
   return {
-    posts: state.PostReducer.postList
+    posts: state.PostReducer.postList,
+    searchKey: state.PostReducer.searchKey,
+    sortKey: state.PostReducer.sortKey
   }
 }
 

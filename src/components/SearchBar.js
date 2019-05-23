@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 
-import { fetchPosts } from '../actions/PostAction'
+import { searchPostFn } from '../actions/PostAction'
 
 class SearchBar extends Component {
   
@@ -9,7 +9,7 @@ class SearchBar extends Component {
     let searchKey = ''
     event.preventDefault();
     searchKey = this.refs.search.value;
-    this.props.fetchPosts(searchKey);
+    this.props.searchPostFn(searchKey);
   }
 
   render() {
@@ -38,4 +38,10 @@ class SearchBar extends Component {
   }
 }
 
-export default connect(null, {fetchPosts})(SearchBar)
+function mapStateToProps(state) {
+  return {
+    searchKey: state.PostReducer.searchKey
+  }
+}
+
+export default connect(null, {searchPostFn})(SearchBar)

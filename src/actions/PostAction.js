@@ -33,6 +33,18 @@ export function sortPosts(sortKey) {
     };
 }
 
+export function sortPostFn(sortKey) {
+    return dispatch => {
+        dispatch(sortPosts(sortKey));
+  };
+}
+
+export function searchPostFn(searchKey) {
+    return dispatch => {
+        dispatch(searchPosts(searchKey));
+  };
+}
+
 export function fetchPosts(search) {
     const { baseURL, POSTS_URL } = ApiConstants;
     let filter = {
@@ -60,12 +72,3 @@ export function fetchPosts(search) {
         .then(data => dispatch(setPosts(data)))
     }
 }
-
-/*export function searchPosts() {
-    const { baseURL, POSTS_URL } = ApiConstants;
-    return dispatch => {
-        fetch(`${baseURL}${POSTS_URL}`)
-        .then(res => res.json())
-        .then(data => dispatch(setPosts(data)));
-    }
-}*/
