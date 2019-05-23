@@ -22,7 +22,6 @@ class CategoryFilter extends Component {
   }
 
   render() {
-    console.log(this.refs)
     return (
       <div>
       <form>

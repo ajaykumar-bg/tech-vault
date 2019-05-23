@@ -45,9 +45,9 @@ export function searchPostFn(searchKey) {
   };
 }
 
-export function fetchPosts(search) {
+export function fetchPosts(search, sortKey) {
     const { baseURL, POSTS_URL } = ApiConstants;
-    let filter = {
+    /*let filter = {
         "where": {
             "title":"",
             "categoryType":"",
@@ -56,11 +56,11 @@ export function fetchPosts(search) {
         "limit": 5,
         "skip": 0,
         "order": "title ASC"
+    };*/
+    const filter = {
+        searchKey: search,
+        order: sortKey
     };
-    filter = {};
-    if(search) {
-        filter = {searchKey: search};
-    }
     const filterStr = JSON.stringify(filter);
     return dispatch => {
         return fetch(`${baseURL}${POSTS_URL}?filter=${filterStr}`, {

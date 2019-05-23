@@ -44,4 +44,4 @@ function mapStateToProps(state) {
   }
 }
 
-export default connect(null, {searchPostFn})(SearchBar)
+export default connect(mapStateToProps, {searchPostFn})(SearchBar)

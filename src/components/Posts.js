@@ -5,13 +5,30 @@ import PostList from "./PostList";
 import { fetchPosts } from '../actions/PostAction'
 
 class Posts extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+      searchKey: '',
+      sortKey: '',
+      posts: []
+    }
+  }
+  
   componentDidMount() {
-    this.props.fetchPosts();
+    const {searchKey, sortKey} = this.state;
+    this.props.fetchPosts(searchKey, sortKey);
   }
 
   componentWillReceiveProps(nextProps) {
-    console.log("nextProps", nextProps);
-    // this.props.fetchPosts();
+    const {searchKey, sortKey} = this.props;
+    if(nextProps.searchKey !== searchKey || nextProps.sortKey !== sortKey) {
+      this.setState({
+        searchKey: nextProps.searchKey,
+        sortKey: nextProps.sortKey,
+      });
+      this.props.fetchPosts(nextProps.searchKey, nextProps.sortKey);
+    }
   }
   
   
