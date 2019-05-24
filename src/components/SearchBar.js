@@ -6,9 +6,13 @@ import { searchPostFn } from '../actions/PostAction'
 class SearchBar extends Component {
   
   searchPostList = (event: Event) => {
-    let searchKey = ''
     event.preventDefault();
-    searchKey = this.refs.search.value;
+    const searchKey = this.refs.search.value;
+    this.props.searchPostFn(searchKey);
+  }
+
+  clearSearch = () => {
+    const searchKey = this.refs.search.value = '';
     this.props.searchPostFn(searchKey);
   }
 
@@ -29,7 +33,7 @@ class SearchBar extends Component {
             <label className="label-icon" htmlFor="search">
               <i className="material-icons">search</i>
             </label>
-            <i className="material-icons">close</i>
+            <i className="material-icons" onClick={this.clearSearch}>close</i>
           </div>
         </form>
       </div>
