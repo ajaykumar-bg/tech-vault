@@ -30,7 +30,7 @@ export function loginUser(googleResponse) {
 }
 
 export function logoutUser() {
-    // StorageService.clearStorage();
+    StorageService.clearStorage();
     return dispatch => {
         dispatch(logout());
   };

@@ -5,6 +5,8 @@ import SearchBar from './SearchBar'
 import CategoryFilter from './CategoryFilter'
 import Posts from './Posts'
 
+
+
 class Home extends Component {
   componentWillReceiveProps(nextProps) {
     if((this.props.isAuthenticated !== nextProps.isAuthenticated )&& nextProps.isAuthenticated === false) {
