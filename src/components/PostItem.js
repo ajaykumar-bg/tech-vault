@@ -30,8 +30,15 @@ function PostItem({post}) {
             </span>
           </div>
           <div className="post-meta">
-            <span className="badge badge-primary text-white">{post.categoryType}</span>
+            <span className="badge bg-darkblue text-white">{post.categoryType}</span>
             <span className="post-date">{fromNow(post.postedOn)}</span>
+          </div>
+
+          <div className="post-meta row">
+            <div className="col-2 col-md-3"><span className="fa fa-heart"></span> 5</div>
+            <div className="col-2 col-md-3"><span className="fa fa-eye"></span> 32</div>
+            <div className="col-6 col-md-3"></div>
+            <div className="col-2 col-md-3"><span className="fa fa-star text-gold"></span></div>
           </div>
         </div>
       </div>
