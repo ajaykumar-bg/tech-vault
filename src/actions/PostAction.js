@@ -1,4 +1,5 @@
 import ApiConstants from '../constants/ApiConstants'
+import postData from '../constants/postsData'
 
 import { FETCH_POSTS, SEARCH_POSTS, SORT_POSTS } from '../constants/Constants'
 
