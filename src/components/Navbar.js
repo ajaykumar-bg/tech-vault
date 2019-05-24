@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from 'react-redux';
-import { Link } from 'react-router-dom'
+import { Link } from 'react-router-dom';
+
+import GoogleAuth from './GoogleAuth';
 import "../App.css";
 
 import { logoutUser } from '../actions/AuthAction';
@@ -22,9 +24,8 @@ class Navbar extends Component {
             <li>
               <Link to="/">Welcome {userName}</Link>
             </li>
-            <li onClick={this.onLogoutClick}>
-              <Link to="/login">Logout</Link>
-            </li>
+            <li to="/login"><GoogleAuth/></li>
+            
           </ul>
 
           <ul id="nav-mobile" className="sidenav">

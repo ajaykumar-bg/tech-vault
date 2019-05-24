@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux';
+import GoogleAuth from './GoogleAuth'
 
 import logo from "../logo.svg";
 import "../App.css";
@@ -22,6 +23,13 @@ class Login extends Component {
       this.props.history.push('/home');
     }
   };
+
+  componentWillReceiveProps(nextProps) {
+    if((this.props.isAuthenticated !== nextProps.isAuthenticated ) && nextProps.isAuthenticated === true) {
+      this.props.history.push('/home');
+    }
+  }
+  
   render() {
     return (
       <div className="App">
@@ -30,13 +38,14 @@ class Login extends Component {
           <div>
             {/* <button className="ui red google button">
               <i className="google icon"></i>Login</button> */}
-            <GoogleLogin
+            {/* <GoogleLogin
               clientId="274869646267-s65d4g324l4h9ltv8l0p3p1vvgfukl5o.apps.googleusercontent.com"
               buttonText="Login"
               onSuccess={this.responseGoogle}
               onFailure={this.responseGoogle}
               cookiePolicy={"single_host_origin"}
-            />
+            /> */}
+            <Link to="/home"><GoogleAuth/></Link>
           </div>
           <Link className="App-link" to="/">
             Tech Vault
@@ -49,6 +58,7 @@ class Login extends Component {
 
 function mapStateToProps(state) {
   return {
+    isAuthenticated: state.AuthReducer.isAuthenticated,
     user: state.AuthReducer.user
   }
 }

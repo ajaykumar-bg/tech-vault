@@ -4,7 +4,7 @@ import StorageService from '../services/StorageService'
 const user = StorageService.getLoggedInUser();
 const initialState = {
     user: user,
-    isAuthenicated: user ? true : false 
+    isAuthenticated: user ? true : false 
 };
 
 export default function AuthReducer(state = initialState, action = {}) {
@@ -13,14 +13,14 @@ export default function AuthReducer(state = initialState, action = {}) {
             return {
                 ...state,
                 user: action.user,
-                isAuthenicated: true
+                isAuthenticated: true
             };
         }
         case LOGOUT: {
             return {
                 ...state,
                 user: null,
-                isAuthenicated: false
+                isAuthenticated: false
             };
         }
         default: return state;

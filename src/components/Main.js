@@ -7,12 +7,12 @@ import Home from "./Home";
 
 class Main extends Component {
   render() {
-    const { isAuthenicated } = this.props;
+    const { isAuthenticated } = this.props;
     return (
       <main>
         <Switch>
           <Route exact path="/" render={() => (
-            isAuthenicated ? (
+            isAuthenticated ? (
               <Redirect to="/home"/>
             ) : (
               <Redirect to="/login"/>
@@ -28,7 +28,7 @@ class Main extends Component {
 
 function mapStateToProps(state) {
   return {
-    isAuthenicated: state.AuthReducer.isAuthenicated
+    isAuthenticated: state.AuthReducer.isAuthenticated
   }
 }
 
