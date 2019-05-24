@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import GoogleLogin from "react-google-login";
-
 import { Link } from "react-router-dom";
+import { connect } from 'react-redux';
 
 import logo from "../logo.svg";
 import "../App.css";
+import { loginUser } from '../actions/AuthAction'
 
 class Login extends Component {
   responseGoogle = response => {
@@ -17,7 +18,8 @@ class Login extends Component {
         token: response.Zi.access_token,
         provider_pic: response.w3.Paa
       };
-      console.log("responseGoogle", user);
+      this.props.loginUser(user);
+      this.props.history.push('/home');
     }
   };
   render() {
@@ -26,8 +28,10 @@ class Login extends Component {
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
           <div>
+            {/* <button className="ui red google button">
+              <i className="google icon"></i>Login</button> */}
             <GoogleLogin
-              clientId="353047849820-psgdjh1ol09hrulcdndh0mi2qm0hrkla.apps.googleusercontent.com"
+              clientId="274869646267-s65d4g324l4h9ltv8l0p3p1vvgfukl5o.apps.googleusercontent.com"
               buttonText="Login"
               onSuccess={this.responseGoogle}
               onFailure={this.responseGoogle}
@@ -43,4 +47,14 @@ class Login extends Component {
   }
 }
 
-export default Login;
+function mapStateToProps(state) {
+  return {
+    user: state.AuthReducer.user
+  }
+}
+
+const mapDispatchToProps = { loginUser }
+
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

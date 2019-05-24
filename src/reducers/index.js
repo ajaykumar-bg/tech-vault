@@ -1,9 +1,9 @@
 import {combineReducers} from 'redux'
 
-import LoginReducer from './LoginReducer'
+import AuthReducer from './AuthReducer'
 import PostReducer from './PostReducer'
 
 export default combineReducers({
-    LoginReducer,
+    AuthReducer,
     PostReducer
 })
