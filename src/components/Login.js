@@ -38,7 +38,7 @@ class Login extends Component {
               cookiePolicy={"single_host_origin"}
             />
           </div>
-          <Link className="App-link" to="/home">
+          <Link className="App-link" to="/">
             Tech Vault
           </Link>
         </header>

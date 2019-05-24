@@ -8,7 +8,6 @@ import { logoutUser } from '../actions/AuthAction';
 class Navbar extends Component {
   onLogoutClick = () => {
     this.props.logoutUser();
-    this.props.history.push('/login');
   }
   render() {
     const {user} = this.props;
@@ -16,21 +15,21 @@ class Navbar extends Component {
     return (
       <nav className="white" role="navigation">
         <div className="nav-wrapper container">
-          <a id="logo-container" href="#" className="brand-logo">
+          <Link id="logo-container" to="/" className="brand-logo">
             Tech Vault
-          </a>
+          </Link>
           <ul className="right hide-on-med-and-down">
             <li>
-              <Link to="/home">Welcome {userName}</Link>
+              <Link to="/">Welcome {userName}</Link>
             </li>
             <li onClick={this.onLogoutClick}>
-              <Link to="/home">Logout</Link>
+              <Link to="/login">Logout</Link>
             </li>
           </ul>
 
           <ul id="nav-mobile" className="sidenav">
             <li>
-              <Link to="/home">Welcome Ajay</Link>
+              <Link to="/">Welcome Ajay</Link>
             </li>
           </ul>
           <a href="#" data-target="nav-mobile" className="sidenav-trigger">

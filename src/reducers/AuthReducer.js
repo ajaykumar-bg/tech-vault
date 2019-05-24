@@ -19,7 +19,7 @@ export default function AuthReducer(state = initialState, action = {}) {
         case LOGOUT: {
             return {
                 ...state,
-                user: {},
+                user: null,
                 isAuthenicated: false
             };
         }
